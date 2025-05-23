@@ -1422,16 +1422,15 @@ class AudiobookMakerView(QMainWindow):
 
         # Get s2s engine-specific parameters dynamically
         s2s_engine_parameters = self.get_s2s_engine_parameters()
-        voice_parameters.update(s2s_engine_parameters)        # Get TTS engine-specific parameters dynamically
+        voice_parameters.update(s2s_engine_parameters)
+
+        # Get TTS engine-specific parameters dynamically
         tts_engine_parameters = self.get_tts_engine_parameters()
         voice_parameters.update(tts_engine_parameters)
 
         return voice_parameters
-    
     def get_selected_table_row(self):
-        return self.tableWidget.currentRow()
-    
-    def get_window_size(self):
+        return self.tableWidget.currentRow()    def get_window_size(self):
         screen = QApplication.primaryScreen().availableGeometry()  # Get the available screen geometry
         target_ratio = 16 / 9
         width = screen.width() * 0.8  # Adjusted to fit within the screen
